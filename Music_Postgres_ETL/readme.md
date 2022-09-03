@@ -26,4 +26,26 @@ log_data/2018/11/2018-11-12-events.json
 log_data/2018/11/2018-11-13-events.json
 ```
 
+## Schema
+<h4 id="fact-tables">Fact Tables</h4>
+<ol>
+<li><strong>songplays</strong> - records in log data associated with song plays i.e. records with page <code>NextSong</code>  <ul>
+<li><em>songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent</em></li></ul></li>
+</ol>
+<h4 id="dimension-tables">Dimension Tables</h4>
+<ol start="2">
+<li><strong>users</strong> - users in the app<ul>
+<li><em>user_id, first_name, last_name, gender, level</em></li></ul></li>
+<li><strong>songs</strong> - songs in music database<ul>
+<li><em>song_id, title, artist_id, year, duration</em></li></ul></li>
+<li><strong>artists</strong> - artists in music database<ul>
+<li><em>artist_id, name, location, latitude, longitude</em></li></ul></li>
+<li><strong>time</strong> - timestamps of records in <strong>songplays</strong> broken down into specific units<ul>
+<li><em>start_time, hour, day, week, month, year, weekday</em></li></ul></li>
+</ol>
 
+## Steps
+1. Create Drop and Create table queries using [sql_queries.py](sql_queries.py)
+2. Create database and create tables by running [create_tables.py] (create_tables.py) 
+3. Complete the ETL process by running [etl.py] (etl.py)
+4. Use [test.ipynb](test.ipynb) to validate the table creation and data insert.
