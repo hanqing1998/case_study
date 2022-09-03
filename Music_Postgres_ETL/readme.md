@@ -46,6 +46,6 @@ log_data/2018/11/2018-11-13-events.json
 
 ## Steps
 1. Create Drop and Create table queries using [sql_queries.py](sql_queries.py)
-2. Create database and create tables by running [create_tables.py] (create_tables.py) 
-3. Complete the ETL process by running [etl.py] (etl.py)
+2. Create database and create tables by running [create_tables.py](create_tables.py) 
+3. Complete the ETL process by running [etl.py](etl.py)
 4. Use [test.ipynb](test.ipynb) to validate the table creation and data insert.
