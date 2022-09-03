@@ -10,10 +10,12 @@ def process_song_file(cur, filepath):
     df = pd.read_json(filepath,lines= True)
 
     # insert song record
+    # each file only contains one record, therefore we don't need to iterate the rows
     song_data = (df[['song_id','title','artist_id','year','duration']].values).tolist()[0]
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
+    # each file only contains one record, therefore we don't need to iterate the rows
     artist_data = (df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']].values).tolist()[0]
     cur.execute(artist_table_insert, artist_data)
 
