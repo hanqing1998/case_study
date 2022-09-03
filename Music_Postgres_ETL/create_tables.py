@@ -24,17 +24,15 @@ def create_database():
 
 def drop_tables(cur, conn):
     print('-----Start dropping Table-----')
-    n=1
     length = len(drop_table_queries)
-    for query in drop_table_queries:
-        print(f'Start dropping Table {n}/{length}')
+    for n,query in enumerate(drop_table_queries):
+        print(f'Start dropping Table {n+1}/{length}')
         try:
             cur.execute(query)
             conn.commit()
-            print(f'Table {n}/{length} dropped successfully')
-            n =n+1
+            print(f'Table {n+1}/{length} dropped successfully')
         except psycopg2.exception as e:
-            print(f'Failed to drop table {n}/{length}')
+            print(f'Failed to drop table {n+1}/{length}')
             print(e)
             
         
@@ -42,17 +40,16 @@ def drop_tables(cur, conn):
 
 def create_tables(cur, conn):
     print('-----Start Creating Table-----')
-    n=1
     length = len(create_table_queries)
-    for query in create_table_queries:
-        print(f'Start creating Table {n}/{length}')
+    for n,query in enumerate(create_table_queries):
+        print(f'Start creating Table {n+1}/{length}')
         try:
             cur.execute(query)
             conn.commit()
-            print(f'Table {n}/{length} created successfully')
-            n = n+1
+            print(f'Table {n+1}/{length} created successfully')
+
         except psycopg2.exception as e:
-            print(f'Failed to create table {n}/{length}')
+            print(f'Failed to create table {n+1}/{length}')
             print(e)
 
 
