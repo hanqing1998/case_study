@@ -1,12 +1,15 @@
-# DROP TABLES
-
+# ----- DROP TABLES ------
+"""
+Before creating tables, we need to make sure tables with same names do not exist
+"""
 songplay_table_drop = "DROP table if exists songplays"
 user_table_drop = "DROP table if exists users"
 song_table_drop = "DROP table if exists songs"
 artist_table_drop = "DROP table if exists artists"
 time_table_drop = "DROP table if exists time"
 
-# CREATE TABLES
+
+# -----CREATE TABLES-----
 songplay_table_create = (""" 
 CREATE TABLE IF NOT EXISTS songplays (
     songplay_id SERIAL PRIMARY KEY,
@@ -63,8 +66,7 @@ CREATE TABLE IF NOT EXISTS time (
 );
 """)
 
-# INSERT RECORDS
-
+# -----INSERT RECORDS-----
 songplay_table_insert = ("""
     INSERT INTO songplays (songplay_id,start_time,user_id,level,song_id,artist_id,session_id,location,user_agent )
     VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
@@ -96,8 +98,12 @@ time_table_insert = ("""
     ON CONFLICT(start_time) DO NOTHING
 """)
 
-# FIND SONGS
-
+# -----FIND SONGS-----
+"""
+songplays table consist of value from both songs and logs data.
+Given the fact that we already created the songs and artist table based on the songs data,
+we could search the artist_id and sond_id for each row based on the title &name &duration passed by
+"""
 song_select = ("""
     SELECT ss.song_id, ss.artist_id FROM songs ss 
     JOIN artists ars on ss.artist_id = ars.artist_id
