@@ -2,9 +2,23 @@
 # Introduction
 This file contains the experiment design process.
 
+[Pre-experiment](#pre)
+ 1. [Operation Funnel](#funnel)
+ 2. [Metrics Selection](#metric)
+ 3. [Sizing/Duration/Exposure](#sizing)
+ 
+[Post-experiment](#post)
 
-# Pre-experiment
-## Operation Funnel
+ 1. [Sanity Check](#check)
+ 2. [Result Analysis](#result)
+  - [Effect Size](#effect)
+  - [Sign Tests](#sign)
+  - [Summary](#summary)
+
+
+
+# Pre-experiment <a name="pre"></a>
+## Operation Funnel <a name="funnel"></a>
 - Control group 
 <img src="imgs/control.png" width="720" height="360">
 
@@ -13,7 +27,7 @@ This file contains the experiment design process.
 
 According to the pictures above, we are expected to see the number of retention users after 14 days keep the same and the number of users who access the course material increase. The main goal is to increase the user experiences and Udacity want the number of frastrated users who enrolled in the course decrease.
 
-## Metrics Selection
+## Metrics Selection <a name="metric"></a>
 The Introduction offers 7 metrics:
 
 ---
@@ -45,7 +59,7 @@ As for the evaluation metric, I show them in the following table due to they are
 
 I decide not to use Number of user-ids who enroll in the free trail because this could not tell us wheather a user get frastrated on the course and thus could help us decide the effect of the change. It can't be used as an invariant metric either because the number of users will definitely decrease because of the new function.
 
-## Sizing/Duration/Exposure
+## Sizing/Duration/Exposure <a name="sizing"></a>
  Next step is to decide the number of samples given alpha (0.05) and beta(0.2). We now have the baseline value for the metrics above.
  
 Metric                    | Explanation                                          | Value     |
@@ -73,9 +87,9 @@ Since the maximum traffic for the course page is only 40K, if we use 100% traffi
 Next, we need to decide the traffic we use. If we use 100% traffic, the required time are 2-3 weeks; if we use 50% traffic, we need to extend the experiment time to 5-6 weeks.
 
 
-# Post-experiment
-## Sanity Check
-## Result Analysis
-### Effect Size 
-### Sign Tests
-### Summary
+# Post-experiment <a name="post"></a>
+## Sanity Check <a name="check"></a>
+## Result Analysis <a name="result"></a>
+### Effect Size <a name="effect"></a>
+### Sign Tests <a name="sign"></a>
+### Summary <a name="summary"></a>
