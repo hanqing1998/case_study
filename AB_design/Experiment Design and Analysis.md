@@ -122,7 +122,13 @@ Sign test is just an another method to validate the result obtained above. The s
 |  Net Conversion  |                10                |  0.6776 | Not Significant |
 
 *The null hypothesis is that if control group is same as the treatment group then the probability of 'success' is 0.5. We use a two-tail p value with 5% significance level.
+*[Binomial Caculator](https://www.graphpad.com/quickcalcs/binomial1.cfm)
 
 The result is the same as effect size method. Gross Conversion decrease significantly and net conversion doesn't change significantly.
 
 ### Summary <a name="summary"></a>
+Udacity wants to see whether adding a question asking students devoting time and making course type recommendation could improve user experience. They divide the pageviews into experiment group which could see the new function and control group which can't see the new function.Three metrics(Number of cookies, number of clicks and click through probability) are chosen for sanity check and three metrics (gross conversion, retention and net conversion) are selected for evaluation. 
+
+The experiment lasts from Oct. 11th to Nov. 16th (37 days) covering 690K pageviews. Analysis revealed the invariant metrics' differences between control and treatment groups are 0 at 95% confidence level so we could move on to the result analysis. As a result, gross conversion is significant for both statistic and practical level while net conversion is not significant. Retention is not used for analysis because of the long expected experiment time.
+
+I would recommend not launching this test. Although a decrease in gross conversion makes the number of frustrated students decreases, but we still don't have enough confidence to say how this action influences the final payment.
