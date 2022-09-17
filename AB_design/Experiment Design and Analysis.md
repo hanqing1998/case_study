@@ -51,13 +51,15 @@ Since our changes are made after users click on the 'Start free trail' button. T
 
 As for the evaluation metric, I show them in the following table due to they are all related to the function we changed.
 
-| No.| Evaluation Metrics       |
-|---|---------------------------|
-| 1 | Gross conversion         |
-| 2 | Retention          |
-| 3 | Net conversion |
+| No. |      Metrics     | Expectation |
+|:---:|:----------------:|:-----------:|
+|  1  | Gross conversion |   Decrease  |
+|  2  |     Retention    |   Increase  |
+|  3  |  Net conversion  |     Keep    |
 
 I decide not to use Number of user-ids who enroll in the free trail because this could not tell us wheather a user get frastrated on the course and thus could help us decide the effect of the change. It can't be used as an invariant metric either because the number of users will definitely decrease because of the new function.
+
+Gross conversion decrease means that the frastrated user decrease and the retention increase means that the left user keep in pace with the course. Both of these two metrics should be analyzed together with the net conversion. Similar net vonversion means the change doesn't affect the final revenue we earn.
 
 ## Sizing/Duration/Exposure <a name="sizing"></a>
  Next step is to decide the number of samples given alpha (0.05) and beta(0.2). We now have the baseline value for the metrics above.
@@ -88,8 +90,39 @@ Next, we need to decide the traffic we use. If we use 100% traffic, the required
 
 
 # Post-experiment <a name="post"></a>
+The experiment results could be checked at [here](https://docs.google.com/spreadsheets/d/1Mu5u9GrybDdska-ljPXyBjTpdZIUev_6i7t4LRDfXM8/edit#gid=0).
 ## Sanity Check <a name="check"></a>
+Let's start by checking whether your invariant metrics are equivalent between the two groups.
+
+|      Metrics      | Expected Value | Actual Value | CI Lowver Bound | CI Upper Bound | Pass or not |
+|:-----------------:|:--------------:|:------------:|:---------------:|:--------------:|:-----------:|
+| Number of cookies |       0.5      |    0.5006    |      0.4988     |     0.5012     |     Pass    |
+|  Number of clicks |       0.5      |    0.5005    |      0.4959     |     0.5042     |     Pass    |
+|   CTP Difference  |        0       |   0.0000566  |    -0.0012957   |    0.0012957   |     Pass    |
+
+Note: Expected Value for cookies and Clicks are for control group. 
+We could see that all three metrics pass the sanity check, so we could move to next step.
+
 ## Result Analysis <a name="result"></a>
 ### Effect Size <a name="effect"></a>
+we build a confidence interval with 95% confidence level around the observed difference between the two groups, the results are shown below.
+
+| Metric           | practical difference | Observed Difference | CI Lower Bound | CI Upper Bound | Result                                            |
+|------------------|----------------------|---------------------|----------------|----------------|---------------------------------------------------|
+| Gross Conversion | 0.01                 | -0.0205             | -0.0291       | -0.0120          | Satistically and Practically Significant          |
+| Net Conversion   | 0.0075               | 0.0048              | -0.0116        | 0.0019         | Neither Statistically nor Practically Significant |
+
+The gross conversion is statistically significant and pratically significant because the lower bound is still greater than the pratical difference (-0.012>-0.01). However, the net conversion is not statistically significant because the confidence inerval includes 0. 
+
 ### Sign Tests <a name="sign"></a>
+Sign test is just an another method to validate the result obtained above. The sensitivity of sign test is lower than that of the above test.
+|      Metrics     | Number of days Treatment>Control | P Value |      Result     |
+|:----------------:|:--------------------------------:|:-------:|:---------------:|
+| Gross Conversion |                 4                |  0.026  |   Significant   |
+|  Net Conversion  |                10                |  0.6776 | Not Significant |
+
+*The null hypothesis is that if control group is same as the treatment group then the probability of 'success' is 0.5. We use a two-tail p value with 5% significance level.
+
+The result is the same as effect size method. Gross Conversion decrease significantly and net conversion doesn't change significantly.
+
 ### Summary <a name="summary"></a>
