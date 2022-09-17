@@ -3,7 +3,8 @@
 This file contains the experiment design process.
 
 
-# Operation Funnel
+# Pre-experiment
+## Operation Funnel
 - Control group 
 <img src="imgs/control.png" width="720" height="360">
 
@@ -12,7 +13,7 @@ This file contains the experiment design process.
 
 According to the pictures above, we are expected to see the number of retention users after 14 days keep the same and the number of users who access the course material increase. The main goal is to increase the user experiences and Udacity want the number of frastrated users who enrolled in the course decrease.
 
-# Metrics Selection
+## Metrics Selection
 The Introduction offers 7 metrics:
 
 ---
@@ -44,7 +45,7 @@ As for the evaluation metric, I show them in the following table due to they are
 
 I decide not to use Number of user-ids who enroll in the free trail because this could not tell us wheather a user get frastrated on the course and thus could help us decide the effect of the change. It can't be used as an invariant metric either because the number of users will definitely decrease because of the new function.
 
-# Sizing/Duration/Exposure
+## Sizing/Duration/Exposure
  Next step is to decide the number of samples given alpha (0.05) and beta(0.2). We now have the baseline value for the metrics above.
  
 Metric                    | Explanation                                          | Value     |
@@ -70,3 +71,11 @@ After deciding the sample size, we could calculate the estimated page views requ
 Since the maximum traffic for the course page is only 40K, if we use 100% traffic, the experiment duration could be calculated (See the column Required days) However, we could notice that the required days for retention is 118 days which is too long for us. Therefore, we will only keep Gross conversion and Net conversion as our evaluation metrics.
 
 Next, we need to decide the traffic we use. If we use 100% traffic, the required time are 2-3 weeks; if we use 50% traffic, we need to extend the experiment time to 5-6 weeks.
+
+
+# Post-experiment
+## Sanity Check
+## Result Analysis
+### Effect Size 
+### Sign Tests
+### Summary
