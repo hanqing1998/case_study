@@ -34,4 +34,3 @@ Goals:
 Consider existing residential customers who are about to start their 2nd year with Home Alarm, we need to answer the following questions:
 1. the CLV (looking 8 years out) of a customer who uses autopay/ doesn't use autopay.
 2.  the maximum amount Home Alarm should spend on incentives to convert an existing customer to autopay
-3.  Suggest some marketing actions Home Alarm should consider to convert existing customers to autopay who are about to start their second year with Home Alarm. 
