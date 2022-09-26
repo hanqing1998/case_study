@@ -14,7 +14,7 @@
  4. [Use Logistic Regression to target customers](Logistic_regression_advertising)
  5. [Use Machine Learning models to target customers](machine_learning_target)
     - Contains Logit/Neural Networking/Random Forest/Gradiant Boosting
- 6. [Next product to buy model](next _product_to_buy)
+ 6. [Next product to buy model](next_product_to_buy)
  
  ## Data Engineer
  1. [Create ETL for music data using Postgresql ](Music_Postgres_ETL)
